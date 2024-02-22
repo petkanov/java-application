@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatNoException;
 class WisdomServiceTest {
 
     @Test
-    void whenGetRandomWisdom_thenNoExceptionAndValidResult() {
+    void whenGetRandomWisdom_thenNoExceptionAndValidResultTest() {
         // Arrange
         WisdomService wisdomService = new WisdomService();
 
