@@ -31,6 +31,10 @@ public class WisdomService {
             throw new BadRequestException("bla bla");
         }
 
+        complexMethod();
+        complexMethodMore();
+        Perform_Random_operations();
+
         System.out.println(new Random().nextInt());
 
         int index = Random.nextInt(wisdoms.size());
@@ -127,6 +131,45 @@ public class WisdomService {
     }
 
     public static void complexMethod() {
+        int i = 0;
+        while (i < 10) {
+            if (i % 2 == 0) {
+                for (int j = 0; j < 10; j++) {
+                    if (j == i) {
+                        for (int k = 0; k < 10; k++) {
+                            if (k == j) {
+                                // Deeply nested loop with redundant checks
+                                while (k < 5) {
+                                    System.out.println("k is less than 5 and equals: " + k);
+                                    k++;
+                                }
+                            }
+                        }
+                    } else if (j % 3 == 0) {
+                        switch (j) {
+                            case 3:
+                                System.out.println("j is three");
+                                break;
+                            case 6:
+                                System.out.println("j is six");
+                                break;
+                            case 9:
+                                System.out.println("j is nine");
+                                // Adding unnecessary complexity with more nested conditions
+                                if (i == j) {
+                                    System.out.println("i equals j equals: " + j);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            i++;
+        }
+    }
+    public static void complexMethodMore() {
         int i = 0;
         while (i < 10) {
             if (i % 2 == 0) {
