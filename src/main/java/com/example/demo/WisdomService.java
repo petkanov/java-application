@@ -80,7 +80,6 @@ public class WisdomService {
     }
 
 
-    // Intentionally poorly named variables and methods to introduce code smells
     public static String DoStuff() {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
@@ -126,6 +125,47 @@ public class WisdomService {
 
         return sb.toString();
     }
+
+    public static void complexMethod() {
+        int i = 0;
+        while (i < 10) {
+            if (i % 2 == 0) {
+                for (int j = 0; j < 10; j++) {
+                    if (j == i) {
+                        for (int k = 0; k < 10; k++) {
+                            if (k == j) {
+                                // Deeply nested loop with redundant checks
+                                while (k < 5) {
+                                    System.out.println("k is less than 5 and equals: " + k);
+                                    k++;
+                                }
+                            }
+                        }
+                    } else if (j % 3 == 0) {
+                        switch (j) {
+                            case 3:
+                                System.out.println("j is three");
+                                break;
+                            case 6:
+                                System.out.println("j is six");
+                                break;
+                            case 9:
+                                System.out.println("j is nine");
+                                // Adding unnecessary complexity with more nested conditions
+                                if (i == j) {
+                                    System.out.println("i equals j equals: " + j);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+            i++;
+        }
+    }
+
 
     // Method name does not follow camelCase convention
     private static String GenRndStr(int length) {
