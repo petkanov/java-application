@@ -80,6 +80,66 @@ public class WisdomService {
     }
 
 
+    // Intentionally poorly named variables and methods to introduce code smells
+    public static String DoStuff() {
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        String tempStr = "";
+
+        // Duplicate code blocks
+        for (int i = 0; i < 5; i++) {
+            tempStr = GenRndStr(random.nextInt(10) + 1);
+            sb.append(tempStr).append(" ");
+        }
+
+        // Magic numbers
+        for (int i = 0; i < 10; i++) {
+            sb.append(i);
+        }
+
+        sb = new StringBuilder(new StringBuilder(sb.toString()).reverse());
+
+        int num = random.nextInt(100);
+        sb.insert(random.nextInt(sb.length()), " " + num + " ");
+
+        // Unnecessary complexity and unused variables
+        int result = num * 3 - 50 / (random.nextInt(9) + 1) + 15;
+        String unused = "This is unused";
+        sb.append(" Result: ").append(result);
+
+        // Misleading variable name for binary representation
+        String binaryString = Integer.toBinaryString(result);
+        sb.append(" Binary: ").append(binaryString);
+
+        // Deprecated API usage example (just for demonstration, might not actually be deprecated)
+        System.getSecurityManager().toString();
+
+        // Poor exception handling
+        try {
+            System.out.println("Trying risky operation");
+        } catch (Exception e) {
+        }
+
+        // Hardcoded string repeated
+        sb.append(" UPPERCASE: ").append(tempStr.toUpperCase());
+        sb.append(" UPPERCASE: ").append(tempStr.toUpperCase());
+
+        return sb.toString();
+    }
+
+    // Method name does not follow camelCase convention
+    private static String GenRndStr(int length) {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder strBuilder = new StringBuilder();
+        Random rnd = new Random();
+        while (strBuilder.length() < length) {
+            int index = (int) (rnd.nextFloat() * chars.length());
+            strBuilder.append(chars.charAt(index));
+        }
+        return strBuilder.toString();
+    }
+
+
 //    public static String performRandomOperations() {
 //        StringBuilder result = new StringBuilder();
 //        Random random = new Random();
