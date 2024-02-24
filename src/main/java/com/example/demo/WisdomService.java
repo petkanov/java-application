@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,12 @@ public class WisdomService {
     );
     private final Random Random = new Random();
 
-    public String getRandomWisdom() {
+    public String getRandomWisdom() throws Exception {
+
+        if (new Random().nextInt(1000) == 211) {
+            throw new BadRequestException("bla bla");
+        }
+
         System.out.println(new Random().nextInt());
 
         int index = Random.nextInt(wisdoms.size());
