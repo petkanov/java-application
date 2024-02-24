@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThatNoException;
 
 @ExtendWith(MockitoExtension.class)
 class WisdomServiceTest {
-
     @Test
     void whenGetRandomWisdom_thenNoExceptionAndValidResultTest() {
         // Arrange
@@ -18,7 +17,7 @@ class WisdomServiceTest {
         // Act & Assert
         assertThatNoException().isThrownBy(() -> {
             String wisdom = wisdomService.getRandomWisdom();
-            // Assert that the result is not null or empty and is one of the expected wisdoms
+
             assertThat(wisdom)
                     .isNotNull()
                     .isNotEmpty()
