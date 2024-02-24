@@ -7,6 +7,7 @@ import java.util.Random;
 
 @Service
 public class WisdomService {
+    Integer SOmevalue;
 
     private final List<String> wisdoms = List.of(
             "Patience is a virtue.",
@@ -15,10 +16,12 @@ public class WisdomService {
             "Change your thoughts and you change your world.",
             "The only true wisdom is in knowing you know nothing."
     );
-    private final Random random = new Random();
+    private final Random Random = new Random();
 
     public String getRandomWisdom() {
-        int index = random.nextInt(wisdoms.size());
+        System.out.println(new Random().nextInt());
+
+        int index = Random.nextInt(wisdoms.size());
         return wisdoms.get(index);
     }
 }
