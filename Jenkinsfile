@@ -36,5 +36,17 @@ pipeline {
 				sh "mvn clean package"
 			}
         }
+
+        stage('Docker Build & Push') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: '8b105c3d-a5b4-4318-8ee2-cf9488fdf16a', toolName: 'docker') {
+                        sh "docker build -t java-application -f docker/Dockerfile ."
+                        sh "docker tag java-application ppetkanov/java-application:latest"
+                        sh "docker push ppetkanov/java-application:latest"
+                    }
+                }
+            }
+        }
     }
 }
